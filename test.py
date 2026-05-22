@@ -47,7 +47,7 @@ t_config = {
     },
     
     "llm_config": {
-        "model_name": "deepseek-v4-pro",
+        "model_name": "kimi-k2.6",
         # "model_name": "qwen3.6-plus",
         "temperature": 0.3,
         "max_tokens": 52000,
@@ -318,7 +318,7 @@ def main():
       
             # results = await asyncio.gather(task1, task2)
         
-        t = threading.Thread(target=aa,args=())
+        t = threading.Thread(target=aa, args=(), daemon=True)
         t.start()
         asyncio.run(run_cli(args.thread_id, args.model, args.debug))
     except KeyboardInterrupt:
