@@ -13,7 +13,7 @@ Before running, please configure `api_key` in `models_config.json`. All models c
 export ASRAY_BASE_DIR your_path
 (Note: `asraydata` is a reference value for `ASRAY_BASE_DIR`.)
 
-python test.py  --thread-di = your_id 
+python test.py  --thread-id = your_id 
 
 ## You can continue the conversation through your_id
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 export ASRAY\_BASE\_DIR your\_path
 （注：`asraydata` 为 `ASRAY_BASE_DIR` 的参考路径。）
 
-python test.py  --thread-di = your\_id 
+python test.py  --thread-id = your\_id 
 
 
 
