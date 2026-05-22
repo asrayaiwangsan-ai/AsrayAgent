@@ -56,8 +56,7 @@ t_config = {
                   "read_text_file", "read_doc_file", 
                   "list_all_agent" , "list_all_skill","load_skill", "call_agents","manager_agent_state",
                   "update_user_memory", "rag_save_usermemory" , "rag_load_user_memory" ,
-                  "browser_tool" , "web_fetch"],
-        "mcp_tools":["WebSearch"]
+                  "browser_tool" , "web_fetch"]
     },
     "description": "Asray CLI Agent"
 }
