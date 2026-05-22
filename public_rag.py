@@ -12,7 +12,7 @@ rag_base = os.getenv("ASRAY_BASE_DIR", "/home/ai/asraydata/rag_db")
 
 embeddings = OpenAIEmbeddings(
     model="Qwen3-Embedding-4B",
-    api_key=os.getenv("OPENAI_API_KEY", ""),
+    api_key=os.getenv("OPENAI_API_KEY", "123"),
     openai_api_base=os.getenv("OPENAI_API_BASE", "http://172.20.0.78:9997/v1")
 )
 
