@@ -1,0 +1,42 @@
+{
+    "start": "chatbot",
+    "nodes": [
+      
+        {"name": "chatbot", "type": "llm_invoke", "conf": {
+            "before_invoke": {
+                "system_prompt_hook.SystemPromptHook":{},
+                "multimodal_hook.MultimodalHook":{},
+                "deepseek_reasoning_hook.DeepSeekReasoningHook":{}
+            },
+           "after_invoke": {"async_result_hook.AsyncResultHook":{} }
+           }
+        },
+        {"name": "tools", "type": "base_tool_call"}
+    ],
+    "edges": {
+
+        "chatbot": [{"type": "cond", "conf": {
+            "type": "msg_find",
+            "conf": {
+                "<tool_call>": {"to": "tools"},
+                "[AsyncAgentResult] call_id" : {"to": "chatbot"}
+            }
+        }}],
+        "tools": [{"type": "goto", "to": "chatbot"}]
+    },
+    
+    "llm_config": {
+        "model_name": "deepseek-v4-pro",
+
+        "temperature": 0.6,
+        "max_tokens": 52000,
+        "top_p": 0.9,
+        "tools": ["bash", "write_file", "replace", "grep_search",
+                  "read_text_file", "read_doc_file", 
+                  "list_all_agent" , "list_all_skill","load_skill", "call_agents","manager_agent_state",
+                  "update_user_memory", "rag_save_usermemory" , "rag_load_user_memory" ,
+                  "browser_tool" , "web_fetch"],
+        "mcp_tools":["WebSearch"]
+    },
+    "description": "Asray  Agent 和你完全一样的Agent,在你给Asray Agent委派任务时，请说明不能再次调用Asray Agent"
+}
